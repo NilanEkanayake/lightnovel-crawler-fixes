@@ -51,7 +51,7 @@ class SyosetuCrawler(Crawler):
         volume = {"id": 0}
         if soup.find_all("a", {"class": "novelview_pager-last"}):
             page_num = int(soup.select_one("a[class='novelview_pager-last']")["href"].split("=", 1)[1])
-            for x in range(page_num):
+            for x in range(1, page_num):
                 if self.novel_url.endswith('/'):
                     soup = self.get_soup(self.novel_url + f'?p={x}')
                 else:
